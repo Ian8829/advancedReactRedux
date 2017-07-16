@@ -3,10 +3,13 @@ import express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import mongoose from 'mongoose';
 
 const app = express();
 import router from './router';
 
+// DB Setup
+mongoose.connect('mongodb://localhost:auth/auth');
 
 // App Setup
 app.use(morgan('combined'));
