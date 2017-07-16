@@ -7,6 +7,12 @@ export default function (ComposedComponent) {
       router: React.PropTypes.object
     };
 
+    componentWillMount() {
+      if (!this.props.authenticated) {
+        this.context.router.push('/')
+      }
+    }
+
     render() {
       console.log(this.context);
       return(
