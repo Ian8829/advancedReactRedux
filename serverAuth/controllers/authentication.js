@@ -1,8 +1,13 @@
+import User from '../models/user';
+
 exports.signup = (req, res, next) => {
-  console.log(req.body);
   const email = req.body.email;
   const password = req.body.password;
+
   // See if a user with the given email exists
+  User.findOne({ email }, (err, existingUser) => {
+
+  });
 
   // If a user with email does exist, return an error
 
