@@ -4,7 +4,6 @@ import * as actions from '../../actions';
 
 class Signin extends Component {
   handleFormSubmit({ email, password }) {
-    console.log(email, password);
     // Need to do something to log user in
     this.props.signinUser({ email, password });
   }
@@ -20,7 +19,7 @@ class Signin extends Component {
         </fieldset>
         <fieldset className="form-group">
           <label>Password:</label>
-          <input {...password} className="form-control"/>
+          <input {...password} type="password" className="form-control"/>
         </fieldset>
         <button className="btn btn-primary" action="submit">
           Sign in
