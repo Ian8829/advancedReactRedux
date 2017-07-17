@@ -1,9 +1,18 @@
 import passport from 'passport';
+import LocalStrategy from 'passport-local';
 import User from '../models/user';
 import config from '../config';
 
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
+
+// Create local strategy
+const localOptions = { usernameField: 'email'};
+const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
+  // Verify this username and password, call done with the user
+  // if it is the correct username and password
+  // otherwise, call done with false
+});
 
 // Setup options for JWT Startegy
 const jwtOptions = {
