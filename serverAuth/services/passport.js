@@ -8,7 +8,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 // Setup options for JWT Startegy
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  _secretOrKey: config.secret
+  secretOrKey: config.secret
 };
 
 // Create JWT strategy
