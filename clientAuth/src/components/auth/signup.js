@@ -3,6 +3,11 @@ import { reduxForm } from 'redux-form';
 import * as action from '../../actions';
 
 class Signup extends Component {
+  handleFormSubmit(formProps) {
+    // Call action creator to sign up the user!
+    this.props.signupUser(formProps);
+  }
+
   render() {
     const {
       handleSubmit,
@@ -10,7 +15,7 @@ class Signup extends Component {
     } = this.props;
 
     return(
-      <form>
+      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
           <label>Email:</label>
           <input className="form-control" {...email}/>
