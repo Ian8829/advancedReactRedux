@@ -11,6 +11,7 @@ function tokenForUser(user) {
 exports.signin = (req, res, next) => {
   // User has already had their email and password auth'd
   // We just need to give them a token
+  res.send({ token: tokenForUser(req.user) });
 };
 
 exports.signup = (req, res, next) => {
@@ -22,7 +23,7 @@ exports.signup = (req, res, next) => {
   }
 
   // See if a user with the given email exists
-  User.findOne({ email }, (err, existingUser) => {
+  User.findOne({ email }, function (err, existingUser) {
     if (err) { return next(err); }
 
     // If a user with email does exist, return an error
@@ -36,7 +37,7 @@ exports.signup = (req, res, next) => {
       password
     });
 
-    user.save(err => {
+    user.save(function(err) {
       if (err) { return next(err); }
 
       // Respond to request indicating the user was created

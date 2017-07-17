@@ -5,7 +5,7 @@ import passportService from './services/passport';
 const requireAuth = passport.authenticate('jwt', {session: false});
 const requireSignin = passport.authenticate('local', {session: false});
 
-module.exports = app => {
+module.exports = function(app) {
   app.get('/', requireAuth, (req, res) => {
     res.send({ hi: 'there' });
   });
