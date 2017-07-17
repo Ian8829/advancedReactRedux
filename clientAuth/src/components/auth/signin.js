@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 
 class Signin extends Component {
@@ -44,10 +43,8 @@ function mapStateToProps(state) {
   return { errorMessage: state.auth.error };
 }
 
-Signin = reduxForm({
-  form: 'sigin',
-  fields: [ 'email', 'password' ]
-})(Signin);
-
-export default connect(mapStateToProps, actions)(Signin);
+export default reduxForm({
+  form: 'signin',
+  fields: ['email', 'password']
+}, mapStateToProps, actions)(Signin);
 
