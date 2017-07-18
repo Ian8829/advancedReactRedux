@@ -4,6 +4,8 @@ import http from 'http';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+// import sequelize from 'sequelize';
+// import pg from 'pg';
 import cors from 'cors';
 
 const app = express();

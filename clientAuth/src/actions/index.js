@@ -4,7 +4,10 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  FETCH_MESSAGE
+  FETCH_MESSAGE,
+  ADD_TODO,
+  SET_VISIBILITY_FILTER,
+  TOGGLE_TODO
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -71,13 +74,25 @@ export function fetchMessage() {
   }
 }
 
-// export function fetchmessage() {
-//   const request = axios.get(ROOT_URL, {
-//     headers: {authorization: localStorage.getItem('token')}
-//   });
-//
-//   return {
-//     type: FETCH_MESSAGE,
-//     payload: request
-//   }
-// }
+let nextTodoId = 0;
+export function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    id: nextTodoId++,
+    text
+  }
+}
+
+export function setVisibilityFilter(filter) {
+  return {
+    type: SET_VISIBILITY_FILTER,
+    filter
+  }
+}
+
+export function toggleTodo(id) {
+  return {
+    type: TOGGLE_TODO,
+    id
+  }
+}
